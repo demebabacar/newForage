@@ -21,5 +21,5 @@ Route::get('/test', function () {
 });
 
 Auth::routes();
-route::get('/home', 'HomeController@index')->name('home');
-route::resources('villages', 'VillageController');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resources('villages', 'VillageController');
