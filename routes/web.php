@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return view('layout.default');
+    return view('layout.navbar');
 });
 
 Auth::routes();
