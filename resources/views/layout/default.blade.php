@@ -10,20 +10,20 @@
     Black Dashboard by Creative Tim
   </title>
   <!--     Fonts and icons     -->
-  @include('style.blade.php')
+  @include('style.blade')
 </head>
 
 <body class="">
   <div class="wrapper">
-    @include('sidebar.blade.php')
+    @include('sidebar.blade')
     
-    @include('main.blade.php')
+    @include('main.blade')
     
   </div>
-  @include('plugin.blade.php')
+  @include('plugin.blade')
   
   <!--   Core JS Files   -->
-  
+  @include('script.blade')
 </body>
-@include('script.blade.php')
+
 </html>

@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return view('layout.sidebar');
+    return view('layout.table');
 });
 
 Auth::routes();
