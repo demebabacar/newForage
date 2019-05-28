@@ -10,7 +10,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Gestionnaire
+ * Class Administrateur
  * 
  * @property int $id
  * @property string $uuid
@@ -21,11 +21,11 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  * @property \Carbon\Carbon $updated_at
  * 
  * @property \App\User $user
- * @property \Illuminate\Database\Eloquent\Collection $clients
+ * @property \Illuminate\Database\Eloquent\Collection $compteurs
  *
  * @package App
  */
-class Gestionnaire extends Eloquent
+class Administrateur extends Eloquent
 {
 	use \Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -44,8 +44,8 @@ class Gestionnaire extends Eloquent
 		return $this->belongsTo(\App\User::class, 'users_id');
 	}
 
-	public function clients()
+	public function compteurs()
 	{
-		return $this->hasMany(\App\Client::class, 'gestionnaires_id');
+		return $this->hasMany(\App\Compteur::class, 'administrateurs_id');
 	}
 }
