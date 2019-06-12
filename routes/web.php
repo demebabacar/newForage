@@ -17,9 +17,10 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return view('layout.table');
+    return view('layout.default');
 });
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('villages', 'VillageController');
+?>

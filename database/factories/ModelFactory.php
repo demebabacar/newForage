@@ -45,11 +45,11 @@ $factory->define(App\Facture::class, function (Faker\Generator $faker) {
 
 
 $factory->define(App\Gestionnaire::class, function (Faker\Generator $faker) {
-    $role_id=Role::where('name','Gestionnaire')->first()->id
+    $role_id=App\Role::where('name','Gestionnaire')->first()->id;
     return [
         'matricule' =>"GEST". $faker->word,
         'users_id' => function () use($role_id) {
-             return factory(App\User::class)->create()->id;
+             return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
         },
     ];
 });
