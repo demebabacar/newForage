@@ -263,7 +263,7 @@ return [
 
         'except' => [
             'migrations',
-	     'password_resets',
+            'password_resets',
         ],
     ],
 

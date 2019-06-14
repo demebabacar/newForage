@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df9ff7a7e6c39b16fb48a953493a8b85",
+    "content-hash": "871bf29fb9bb9f3ce437e08acbeb92d3",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1727,6 +1727,74 @@
                 "reliese"
             ],
             "time": "2017-02-04T15:50:39+00:00"
+        },
+        {
+            "name": "spatie/laravel-collection-macros",
+            "version": "5.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-collection-macros.git",
+                "reference": "270eeb8387d4f1c341feec9ad795d5a00cbc7d30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-collection-macros/zipball/270eeb8387d4f1c341feec9ad795d5a00cbc7d30",
+                "reference": "270eeb8387d4f1c341feec9ad795d5a00cbc7d30",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.8.4",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "amphp/parallel": "^0.2.0",
+                "amphp/parallel-functions": "^0.1.2",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "~3.8.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/stopwatch": "^4.0"
+            },
+            "suggest": {
+                "amphp/parallel-functions": "Required when using the parallel*-macros."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CollectionMacros\\CollectionMacroServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CollectionMacros\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://github.com/freekmurze",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://github.com/sebastiandedeyne",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel collection macros",
+            "homepage": "https://github.com/spatie/laravel-collection-macros",
+            "keywords": [
+                "laravel-collection-macros",
+                "spatie"
+            ],
+            "time": "2019-03-19T18:07:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

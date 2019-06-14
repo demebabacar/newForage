@@ -1,6 +1,7 @@
 <?php
-    use App\Helpers\SnNameGenerator as SnmG;
-    use Illuminate\Support\Str;
+use App\Helpers\SnNameGenerator as SnmG;
+use Illuminate\Support\Str;
+
 $factory->define(App\Region::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
@@ -15,24 +16,6 @@ $factory->define(App\Type::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Role::class, function (Faker\Generator $faker) {
-    return [
-        'uuid' => $faker->uuid,
-        'name' => $faker->name,
-    ];
-});
-
-$factory->define(App\Facture::class, function (Faker\Generator $faker) {
-    return [
-        'uuid' => $faker->uuid,
-        'date_limite' => $faker->dateTimeBetween(),
-        'details' => $faker->word,
-        'montant' => $faker->randomFloat(),
-        'debut_consommation' => $faker->dateTimeBetween(),
-        'fin_consommation' => $faker->dateTimeBetween(),
-    ];
-});
-
 // $factory->define(App\Gestionnaire::class, function (Faker\Generator $faker) {
 //     return [
 //         'uuid' => $faker->uuid,
@@ -42,12 +25,10 @@ $factory->define(App\Facture::class, function (Faker\Generator $faker) {
 //         },
 //     ];
 // });
-
-
 $factory->define(App\Gestionnaire::class, function (Faker\Generator $faker) {
     $role_id=App\Role::where('name','Gestionnaire')->first()->id;
     return [
-        'matricule' =>"GEST". $faker->word,
+        'matricule' => "GEST".$faker->word,
         'users_id' => function () use($role_id) {
              return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
         },
@@ -108,6 +89,13 @@ $factory->define(App\Administrateur::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    return [
+        'uuid' => $faker->uuid,
+        'name' => $faker->name,
+    ];
+});
+
 $factory->define(App\Departement::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
@@ -128,12 +116,22 @@ $factory->define(App\Commune::class, function (Faker\Generator $faker) {
     ];
 });
 
+// $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
+//     return [
+//         'uuid' => $faker->uuid,
+//         'matricule' => $faker->word,
+//         'users_id' => function () {
+//              return factory(App\User::class)->create()->id;
+//         },
+//     ];
+// });
+
 $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
+    $role_id=App\Role::where('name','Comptable')->first()->id;
     return [
-        'uuid' => $faker->uuid,
-        'matricule' => $faker->word,
-        'users_id' => function () {
-             return factory(App\User::class)->create()->id;
+        'matricule' => "COMP".$faker->word,
+        'users_id' => function () use($role_id) {
+             return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
         },
     ];
 });
@@ -152,16 +150,15 @@ $factory->define(App\Comptable::class, function (Faker\Generator $faker) {
 //         },
 //     ];
 // });
-
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'firstname' => $faker->firstName,
+        'firstname' => SnmG::getFirstName(),
         'name' => SnmG::getName(),
-        'telephone' => $faker->word,
+        'telephone' => $faker->phoneNumber,
         'email' => Str::random(5).".".$faker->safeEmail,
         'email_verified_at' => $faker->dateTimeBetween(),
         'password' => bcrypt('secret'),
-        
+
     ];
 });
 
@@ -182,13 +179,35 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
     ];
 });
 
+// $factory->define(App\Agent::class, function (Faker\Generator $faker) {
+//     return [
+//         'uuid' => $faker->uuid,
+//         'matricule' => $faker->word,
+//         'users_id' => function () {
+//              return factory(App\User::class)->create()->id;
+//         },
+//     ];
+// });
+
+
 $factory->define(App\Agent::class, function (Faker\Generator $faker) {
+    $role_id=App\Role::where('name','Agent')->first()->id;
+    return [
+        'matricule' => "AGT".$faker->word,
+        'users_id' => function () use($role_id) {
+             return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
+        },
+    ];
+});
+
+$factory->define(App\Facture::class, function (Faker\Generator $faker) {
     return [
         'uuid' => $faker->uuid,
-        'matricule' => $faker->word,
-        'users_id' => function () {
-             return factory(App\User::class)->create()->id;
-        },
+        'date_limite' => $faker->dateTimeBetween(),
+        'details' => $faker->word,
+        'montant' => $faker->randomFloat(),
+        'debut_consommation' => $faker->dateTimeBetween(),
+        'fin_consommation' => $faker->dateTimeBetween(),
     ];
 });
 
