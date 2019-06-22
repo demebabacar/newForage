@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class GestionnairestableSeeder extends Seeder
+class CompteursTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class GestionnairestableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Compteur::class,10)->create();
+
     }
 }

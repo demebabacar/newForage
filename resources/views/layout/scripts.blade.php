@@ -5,7 +5,7 @@
   <!-- Plugin for the momentJs  -->
   <script src="{{asset('assets/js/plugins/moment.min.js')}}"></script>
   <!--  Plugin for Sweet Alert -->
-  <script src="{{asset('assets/js/plugins/sweetalert2.js')}}"></script>
+  <script src="ass{{asset('ets/js/plugins/sweetalert2.js')}}"></script>
   <!-- Forms Validations Plugin -->
   <script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
@@ -218,3 +218,6 @@
 
     });
   </script>
+  <script type="text/javascript" src="{{asset('assets/DataTables/datatables.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('assets/qrcodejs/qrcode.min.js')}}"></script>
+  @stack('scripts')

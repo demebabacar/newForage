@@ -9,13 +9,13 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> abonnements
-                      <a href="{{route('abonnements.create')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Clients
+                      <a href="{{route('clients.create')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-abonnements">
+                    <table class="table" id="table-clients">
                       <thead class=" text-primary">
                         <th>
                           ID

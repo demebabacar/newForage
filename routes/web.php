@@ -22,6 +22,16 @@ Route::get('/test1', function () {
     return "HELLO";
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('villages', 'VillageController');
+Route::get('/clients/selectvillage', function () {
+    return view('clients.selectvillage');
+ })->name('clients.selectvillage');
+ 
+ Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/clients/list', 'ClientController@list')->name('clients.list');
+ Route::get('/villages/list', 'VillageController@list')->name('villages.list');
+ Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
+ Route::resource('villages', 'VillageController');
+ Route::resource('clients', 'ClientController');
+ Route::resource('abonnements','AbonnementController');
+ 
+ 
