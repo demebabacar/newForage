@@ -9,8 +9,8 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> abonnements
-                      <a href="{{route('abonnements.create')}}"><div class="btn btn-warning">Nouveau Client <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Abonnements
+                      <a href="{{route('abonnements.create')}}"><div class="btn btn-warning">Nouvel Abonnement <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 <div class="card-body">
@@ -21,14 +21,17 @@
                           ID
                         </th>
                         <th>
-                          Nom
+                          Date
                         </th>
                         <th>
-                            Prenom
+                          Prenom Client
                         </th>
                         <th>
-                          Email
+                          Nom Client
                         </th>
+                        <th>
+                            Compteur
+                          </th>
                         <th>
                           Action
                           </th>
@@ -49,20 +52,56 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Enregitrement</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @if(Session::has('message'))
+                                {{ Session::get('message') }}
+                                    
+                              
+                              
+                                @push('scripts')
+                                <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $("#error-modal").modal({
+                                        'show':true,
+                                    })
+                                });
+                                </script>
+                                    
+                                @endpush
+                                @endif
+                        
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
       @endsection
 
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-clients').DataTable( { 
+          $('#table-abonnements').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('clients.list')}}",
+            "ajax": "{{route('abonnements.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'user.name', name: 'user.name' },
-                    { data: 'user.firstname', name: 'user.firstname' },
-                    { data: 'user.email', name: 'user.email' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'client.user.name', name: 'client.user.name' },
+                    { data: 'client.user.firstname', name: 'client.user.firstname' },
+                    { data: 'compteur.numero_serie', name: 'compteur.numero_serie' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -70,12 +109,10 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('clients.edit',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('clients.destroy',':id')!!}".replace(':id', data.id);
-                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-danger" href='+url_d+'><i class="material-icons">delete</i></a>';
+                        url_e =  "{!! route('abonnements.show',':id')!!}".replace(':id', data.id);
+                        return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>';
                         },
-                        "targets": 4
+                        "targets": 5
                         },
                     // {
                     //     "data": null,

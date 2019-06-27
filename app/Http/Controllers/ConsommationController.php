@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Village;
+use App\Consommation;
 use Illuminate\Http\Request;
-use App\Helpers\PCollection;
 
-class VillageController extends Controller
+class ConsommationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,23 @@ class VillageController extends Controller
      */
     public function index()
     {
-        $villages=Village::all()->load(['chef.user','commune.arrondissement.departement.region'])->paginate(10);
-        return view('villages.index',compact('villages'));
+        //
     }
+
+    public function list(Abonnement $abonnement=null){
+   
+        if($abonnement==null){
+            $consommations=\App\Consommation::with('compteur.abonnement.client.user')->get();
+            return DataTables::of($consommations)->make(true);
+        }else{
+            $consommations=$abonnement->compteur->consommations->load('compteur.abonnement.client.user');
+            return DataTables::of($consommations)->make(true);
+        }
+    }   
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,21 +53,13 @@ class VillageController extends Controller
         //
     }
 
-    public function list(Request $request){
-   
-        $villages=Village::with(['chef.user','commune.arrondissement.departement.region'])->get();
-        return Datatables::of($villages)->make(true);
-    }
-
-
-
     /**
      * Display the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Consommation  $consommation
      * @return \Illuminate\Http\Response
      */
-    public function show(Village $village)
+    public function show(Consommation $consommation)
     {
         //
     }
@@ -62,10 +67,10 @@ class VillageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Consommation  $consommation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Village $village)
+    public function edit(Consommation $consommation)
     {
         //
     }
@@ -74,10 +79,10 @@ class VillageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Village  $village
+     * @param  \App\Consommation  $consommation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Village $village)
+    public function update(Request $request, Consommation $consommation)
     {
         //
     }
@@ -85,10 +90,10 @@ class VillageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Village  $village
+     * @param  \App\Consommation  $consommation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Village $village)
+    public function destroy(Consommation $consommation)
     {
         //
     }
