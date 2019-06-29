@@ -13,65 +13,65 @@
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="{{route('clients.index')}}">
+      <a class="nav-link" href="{{ route('clients.index')}}">
         <i class="material-icons">person</i>
         <p>Clients</p>
       </a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./user.html">
+    {{-- <li class="nav-item ">
+      <a class="nav-link" href="{{ route('administrateurs.index')}}">
         <i class="material-icons">person</i>
         <p>Administrateurs</p>
       </a>
-    </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./user.html">
+    </li> --}}
+    {{-- <li class="nav-item ">
+      <a class="nav-link" href="{{ route('comptables.index')}}">
         <i class="material-icons">person</i>
         <p>Comptables</p>
       </a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./tables.html">
+    <li class="nav-item "> --}}
+      <a class="nav-link" href="">
         <i class="material-icons">content_paste</i>
         <p>Agents</p>
       </a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./typography.html">
+    {{-- <li class="nav-item ">
+      <a class="nav-link" href="{{route('gestionnaires.index')}}">
         <i class="material-icons">library_books</i>
         <p>Gestionnaires</p>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item ">
-      <a class="nav-link" href="{{route('abonnements.index')}}">
+      <a class="nav-link" href="{{ route('abonnements.index')}}">
         <i class="material-icons">bubble_chart</i>
         <p>Abonnements</p>
       </a>
     </li>
-    <li class="nav-item ">
-      <a class="nav-link" href="./map.html">
+    {{-- <li class="nav-item ">
+      <a class="nav-link" href="{{ route('compteurs.index')}}">
         <i class="material-icons">location_ons</i>
         <p>Compteurs</p>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item ">
-      <a class="nav-link" href="./notifications.html">
+      <a class="nav-link" href="{{ route('factures.index')}}">
         <i class="material-icons">notifications</i>
         <p>Facturation</p>
       </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" href="./rtl.html">
+      <a class="nav-link" href="">
         <i class="material-icons">language</i>
-        <p>RTL Support</p>
+      
       </a>
     </li>
-    <li class="nav-item active-pro ">
+    {{-- <li class="nav-item active-pro ">
       <a class="nav-link" href="./upgrade.html">
         <i class="material-icons">unarchive</i>
         <p>Upgrade to PRO</p>
       </a>
-    </li>
+    </li> --}}
   </ul>
 </div>
 {{-- <div class="sidebar-wrapper">

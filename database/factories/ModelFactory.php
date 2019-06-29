@@ -164,6 +164,19 @@ $factory->define(App\Commune::class, function (Faker\Generator $faker) {
 //     ];
 // });
 
+
+$factory->define(App\Comptable::class, function (Faker\Generator $faker) {
+        $role_id=App\Role::where('name','Comptable')->first()->id;
+        return [
+    
+             'matricule' => "COMPT".$faker->word,
+             'users_id' => function () use($role_id) {
+                  return factory(App\User::class)->create(["roles_id"=>$role_id])->id;
+             },
+         ];
+     });
+
+
 // $factory->define(App\User::class, function (Faker\Generator $faker) {
 //     return [
 //         'uuid' => $faker->uuid,
@@ -202,13 +215,13 @@ $factory->define(App\Reglement::class, function (Faker\Generator $faker) {
             //  return factory(App\Type::class)->create()->id;
             return $id_type;
         },
-        'factures_id' => function () use($id_comptable) {
+        'factures_id' => function () use($id_facture) {
             //  return factory(App\Facture::class)->create()->id;
-            return $id_comptable;
-        },
-        'comptables_id' => function () use($id_facture) {
-            //  return factory(App\Comptable::class)->create()->id;
             return $id_facture;
+        },
+        'comptables_id' => function () use($id_comptable) {
+            //  return factory(App\Comptable::class)->create()->id;
+            return $id_comptable;
         },
     ];
 });

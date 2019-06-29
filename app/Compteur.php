@@ -60,7 +60,7 @@ class Compteur extends Eloquent
 	}
 
 	public function generateFacture(){
-		$nouvelles_conso=$this->getNewConsommationAttribute()
+		$nouvelles_conso=$this->getNewConsommationAttribute();
 		if($nouvelles_conso->count()>0){
 			$facture=new \App\Facture;
 			// $facture->details="generee auto..";

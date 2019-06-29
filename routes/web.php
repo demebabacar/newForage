@@ -30,12 +30,18 @@ Route::get('/clients/selectvillage', function () {
  Route::get('/clients/list', 'ClientController@list')->name('clients.list');
  Route::get('/villages/list', 'VillageController@list')->name('villages.list');
 Route::get('/abonnements/list', 'AbonnementController@list')->name('abonnements.list');
+Route::get('/factures/list', 'FactureController@list')->name('factures.list');
  Route::get('/abonnements/selectcompteur', 'AbonnementController@selectcompteur')->name('abonnements.selectcompteur');
  Route::get('/abonnements/selectclient', 'AbonnementController@selectclient')->name('abonnements.selectclient');
  Route::get('/compteurs/listfree', 'CompteurController@listfree')->name('compteurs.listfree');
+ Route::get('/administrateurs/list', 'AdministrateurController@list')->name('administrateurs.list');
+ Route::get('reglements/create/{facture}','ReglementController@create')->name('reglements.create');
+ Route::resource('reglements','ReglementController')->except('create');
  Route::resource('abonnements','AbonnementController');
  Route::resource('villages', 'VillageController');
  Route::resource('clients', 'ClientController');
+ Route::resource('factures', 'FactureController');
+
 
  Route::get('loginfor/{rolename?}',function($rolename=null){
     if(!isset($rolename)){

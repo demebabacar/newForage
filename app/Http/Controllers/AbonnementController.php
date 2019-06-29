@@ -38,7 +38,7 @@ class AbonnementController extends Controller
     {
         $client = \App\Client::find($request->input('client'));
 
-        return view('abonnements.selectcompteur', compact('client'));
+        return view('abonnements.selectclient', compact('client'));
     }
 
     /**
@@ -48,8 +48,8 @@ class AbonnementController extends Controller
      */
     public function create(Request $request)
     {
-        $client = \App\Client::find($request->input('client'))->load('user');
-        $compteur = \App\Compteur::find($request->input('compteur'));
+        $client=\App\Client::find($request->input('client'))->load('user');
+        $compteur=\App\Compteur::find($request->input('compteur'));
 
         return view('abonnements.create', compact(['client', 'compteur']));
     }
