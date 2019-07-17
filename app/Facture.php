@@ -62,6 +62,6 @@ class Facture extends Eloquent
 	}
 
 	public function getUserAttribute(){
-		return $this->consommations->first->compteur->abonnement->client->user;
+		return $this->consommations->first()->compteur->abonnement->client->user;
 	}
 }

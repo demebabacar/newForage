@@ -177,7 +177,10 @@ a:visited { color: #D87563; }
 	.space-after { padding-bottom:40px; }
 
 }
-
+.header .form {
+	text-align: right;
+	color: white;
+}
 
 /********************************************************/
 /*                     Color themes                     */

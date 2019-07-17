@@ -11,7 +11,7 @@ class GenerateFactures extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:Factures';
+    protected $signature = 'generate:factures';
 
     /**
      * The console command description.

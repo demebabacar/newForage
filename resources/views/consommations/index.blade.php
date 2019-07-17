@@ -9,8 +9,8 @@
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">SENFORAGE</h4>
-                  <p class="card-category"> factures
-                      <a href="{{route('factures.create')}}"><div class="btn btn-warning">Nouvelle facture <i class="material-icons">add</i></div></a> 
+                  <p class="card-category"> Consommations
+                      <a href="{{route('consommations.create')}}"><div class="btn btn-warning">Nouvelle Consommation <i class="material-icons">add</i></div></a> 
                   </p>
                 </div>
                 @if (session('message'))
@@ -21,29 +21,29 @@
 
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table" id="table-factures">
+                    <table class="table" id="table-consommations">
                       <thead class=" text-primary">
                         <th>
                         ID
                         </th>
                         <th>
-                          Date_Limite
-                        </th>
-                       <th>
-                          Montant
-                        </th> 
-                       {{--  <th>
-                          Details
-                        </th> --}}
-                       <th>
-                          Type
+                          Date
                         </th>
                         <th>
-                            Debut cons
+                          Valeur
                         </th>
-                         <th>
-                            Fin cons
-                             </th>
+                        <th>
+                          Mat Agent
+                        </th>
+                       <th>
+                          Prenom_Client
+                        </th>
+                        <th>
+                          Nom_Client
+                        </th>
+                        <th>
+                          Compteur
+                        </th>
                         <th>
                           Action
                           </th>
@@ -64,15 +64,15 @@
           </div>
         </div>
       </div>
-      <!-- Modal-delete-facture-->
-      <div class="modal" id="modal-delete-facture" tabindex="-1" role="dialog">
-        <form method="POST" action="" id="form-delete-facture">
+      <!-- Modal-delete-consommation-->
+      <div class="modal" id="modal-delete-consommation" tabindex="-1" role="dialog">
+        <form method="POST" action="" id="form-delete-consommation">
         {{ csrf_field() }}
         @method('DELETE')
       <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Êtes-vous sûr de bien vouloir supprimer ce facture</h5>
+          <h5 class="modal-title">Êtes-vous sûr de bien vouloir supprimer ce consommation</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -92,18 +92,18 @@
       @push('scripts')
       <script type="text/javascript">
       $(document).ready(function () {
-          $('#table-factures').DataTable( { 
+          $('#table-consommations').DataTable( { 
             "processing": true,
             "serverSide": true,
-            "ajax": "{{route('factures.list')}}",
+            "ajax": "{{route('consommations.list')}}",
             columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'date_limite', name: 'date_limite' },
-                    { data: 'montant', name: 'montant' }, 
-                   /*  { data: 'details', name: 'details' }, */ 
-                    { data: 'reglement.type.name', name: 'reglement.type.name' },
-                    { data: 'debut_consommation', name: 'debut_consommation' },
-                    { data: 'fin_consommation', name: 'fin_consommation' },
+                    { data: 'date', name: 'date' },
+                    { data: 'valeur', name: 'valeur' },
+                    { data: 'agent.matricule', name: 'agent.matricule' },
+                    { data: 'compteur.abonnement.client.user.firstname', name: 'compteur.abonnement.client.user.firstname' },
+                    { data: 'compteur.abonnement.client.user.name', name: 'compteur.abonnement.client.user.name' },
+                    { data: 'compteur.numero_serie', name: 'compteur.numero_serie' },
                     { data: null ,orderable: false, searchable: false}
 
                 ],
@@ -111,29 +111,30 @@
                         {
                         "data": null,
                         "render": function (data, type, row) {
-                        url_e =  "{!! route('factures.show',':id')!!}".replace(':id', data.id);
-                        url_d =  "{!! route('reglements.create',':id')!!}".replace(':id', data.id);
+                        url_e =  "{!! route('consommations.edit',':id')!!}".replace(':id', data.id);
+                        url_d =  "{!! route('consommations.destroy',':id')!!}".replace(':id', data.id);
                         return '<a href='+url_e+'  class=" btn btn-primary " ><i class="material-icons">edit</i></a>'+
-                        '<a class="btn btn-success delete btn-delete-facture"  href='+url_d+'><i class="material-icons">delete</i></a>'; 
+                        '<div class="btn btn-danger delete btn-delete-consommation"  data-href='+url_d+'><i class="material-icons">delete</i></div>'; 
                         },
-                        "targets": 6
-                        
+                        "targets": 7
                         },
-                
+                    // {
+                    //     "data": null,
+                    //     "render": function (data, type, row) {
+                    //         url =  "{!! route('consommations.edit',':id')!!}".replace(':id', data.id);
+                    //         return check_status(data,url);
+                    //     },
+                    //     "targets": 1
+                    // }
                 ],
-                dom: 'lBfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ]
               
           });
 
-         $('#table-factures').off('click', '.btn-delete-facture').on('click', '.btn-delete-facture', 
+         $('#table-consommations').off('click', '.btn-delete-consommation').on('click', '.btn-delete-consommation', 
           function(){
             var href=$(this).data('href');
-            $("#form-delete-facture").attr("action",href);
-            $('#modal-delete-facture').modal();
+            $("#form-delete-consommation").attr("action",href);
+            $('#modal-delete-consommation').modal();
           });
         });
 

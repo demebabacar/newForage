@@ -18,42 +18,42 @@
         <p>Clients</p>
       </a>
     </li>
-    {{-- <li class="nav-item ">
+     <li class="nav-item ">
       <a class="nav-link" href="{{ route('administrateurs.index')}}">
         <i class="material-icons">person</i>
         <p>Administrateurs</p>
       </a>
-    </li> --}}
-    {{-- <li class="nav-item ">
+    </li> 
+     <li class="nav-item ">
       <a class="nav-link" href="{{ route('comptables.index')}}">
         <i class="material-icons">person</i>
         <p>Comptables</p>
       </a>
     </li>
-    <li class="nav-item "> --}}
-      <a class="nav-link" href="">
+    <li class="nav-item "> 
+      <a class="nav-link" href="{{ route('agents.index')}}">
         <i class="material-icons">content_paste</i>
         <p>Agents</p>
       </a>
     </li>
-    {{-- <li class="nav-item ">
+     <li class="nav-item ">
       <a class="nav-link" href="{{route('gestionnaires.index')}}">
         <i class="material-icons">library_books</i>
         <p>Gestionnaires</p>
       </a>
-    </li> --}}
+    </li> 
     <li class="nav-item ">
       <a class="nav-link" href="{{ route('abonnements.index')}}">
         <i class="material-icons">bubble_chart</i>
         <p>Abonnements</p>
       </a>
     </li>
-    {{-- <li class="nav-item ">
+     <li class="nav-item ">
       <a class="nav-link" href="{{ route('compteurs.index')}}">
         <i class="material-icons">location_ons</i>
         <p>Compteurs</p>
       </a>
-    </li> --}}
+    </li> 
     <li class="nav-item ">
       <a class="nav-link" href="{{ route('factures.index')}}">
         <i class="material-icons">notifications</i>
@@ -63,7 +63,7 @@
     <li class="nav-item ">
       <a class="nav-link" href="">
         <i class="material-icons">language</i>
-      
+        <p>Reglement</p>
       </a>
     </li>
     {{-- <li class="nav-item active-pro ">
@@ -74,21 +74,21 @@
     </li> --}}
   </ul>
 </div>
-{{-- <div class="sidebar-wrapper">
+ {{-- <div class="sidebar-wrapper">
     <ul class="nav">
       <li class="nav-item active  ">
-        <a class="nav-link" href="./dashboard.html">
+        <a class="nav-link" href="layout.default">
           <i class="material-icons">dashboard</i>
           <p>Dashboard</p>
         </a>
-      </li>
-      <li class="nav-item ">
+      </li> --}}
+      {{-- <li class="nav-item ">
         <a class="nav-link" href="./user.html">
           <i class="material-icons">person</i>
           <p>User Profile</p>
         </a>
-      </li>
-      <li class="nav-item ">
+      </li> --}}
+      {{-- <li class="nav-item ">
         <a class="nav-link" href="./tables.html">
           <i class="material-icons">content_paste</i>
           <p>Table List</p>
@@ -131,4 +131,4 @@
         </a>
       </li>
     </ul>
-  </div> --}}
+  </div> --}} --}}

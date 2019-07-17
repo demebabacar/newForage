@@ -27,7 +27,7 @@ class FactureController extends Controller
         return Datatables::of($facture)->make(true);
     }  
 
-public function create()
+public function create(Facture $facture)
 {
     //
     $facture=facture::get();

@@ -1,5 +1,5 @@
-@extends('layout.default')
-@section('content')
+{{-- @extends('layout.default')
+@section('content') --}}
     
 <!DOCTYPE html>
 <html lang="en">
@@ -39,9 +39,15 @@
 		</div>
 		<div id="to">
 			<p>
-				<strong>John Doe</strong><br>
-				10 rue Charles Rouxel<br>
-				77014 Paris
+				<strong>{{ $facture->user->name }} {{ $facture->user->firstname }}</strong><br>
+				{{ $facture->user->client->village->commune->name }}
+				@foreach($facture->consommations as $consommation)
+				<tr>
+					<td>{{ $consommation->date }}</td>
+					<td>{{ $consommation->valeur}}</td>
+				</tr>
+				@endforeach
+
 			</p>
 		</div>
 	</div>
@@ -63,10 +69,10 @@
 				<td>1</td>
 				<td>3,99</td>
 			</tr>
-			@foreach($factures->consommations as $consommation)
+			
 			<tr>
-				<td>{{ $consommation->date }}</td>
-				<td>{{ $consommation->valeur}}</td>
+				<td></td>
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -224,4 +230,4 @@
 
 </body>
 </html>
-@endsection
+{{-- @endsection --}}

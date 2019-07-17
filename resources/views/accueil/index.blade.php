@@ -41,9 +41,10 @@
 					<br>
 				
 				<form class="form-inline" role="form">
+					//<a class="form" href=" http://192.168.142.130/laravelApp/public/Home">//Login</a><br><br>
 					<div class="form-group"><input type="text" class="form-control input-lg" id="exampleInputEmail2" placeholder="Your Name"></div>
 					<div class="form-group"><input type="text" class="form-control input-lg" id="exampleInputPassword2" placeholder="Your Email"></div>
-					<button type="submit" class="btn btn-lg btn-default">Subscribe</button>
+					<a href="http://192.168.142.130/laravelApp/public/Home" class="btn btn-lg btn-default">Connecter</a>
 				</form>
 				<p class="small text-muted">Powered by Mailchimp. Unsubscribe at any time.</p>
 			</div>
@@ -51,7 +52,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div id="illustration">
-					<img src="assets/images/ap-screenshot.png" alt="" >
+					<img src="{{ asset('asset/images/ap-screenshot.png') }}" alt="" >
 				</div>
 			</div>
 		</div>
@@ -155,7 +156,7 @@
 
 
 <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') }}"></script>
 <script src="{{ asset('asset/js/template.js') }}"></script>
 
 </body>
